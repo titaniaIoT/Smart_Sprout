@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hệ thống tưới cây tự động dùng ESP32</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+    </head>
+    <body onload = "dongho(), ClickHome(), sync_Firebase()">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <div class="header">
+            <h1>HỆ THỐNG TƯỚI CÂY TỰ ĐỘNG</h1>
+            <p id="time"></p>
+          </div>
+        
+          <div class="topnav">
+            <button class="tablinks" onclick = "ClickHome()">Trang điều khiển</button>
+            <button class="tablinks" onclick = "ClickTable()">Theo dõi lần tưới</button>
+            <button class="tablinks" onclick = "ClickVD()">Biểu đồ không khí</button>  
+          </div>
+          
+        <div class="row">
+            <div class="leftcolumn">
+                <div class="bgr_img" id="bgr_img"></div>
+
+            <div class='room' id="home-page">
+              <div class="card">
+                <div class="column">
+                    <p>Nhiệt độ</p>
+                    <p><img src="img/hot.png" alt="Nhiệt độ" class="image"></p>
+                    <p id="TemperatureLivingRoom" class="Show"></p>
+                </div>  
+                <div class="column">
+                    <p>Độ ẩm</p>
+                    <p><img src="img/humidity.png" alt="Độ ẩm" class="image"></p>
+                    <p id="HumidityLivingRoom" class="Show"></p>
+                </div>
+                <div class="column">
+                    <p>Độ ẩm đất</p>
+                    <p><img src="img/soil.png" alt="Gas" class="image"></p>
+                    <p id="GasLivingRoom" class="Show"></p>
+                </div>
+              </div>    <!--Kết thúc thẻ card-->
+              <div class="card">
+                <div class="column">
+                    <p>Chuyển đổi chế độ</p>
+                    <p><img id="switch" src="img/auto.png" alt="Điều hòa" class="image"></p>
+                    <button class="btn" id="on_manual" onclick="onManual()">Manual</button>
+                    <button class="btn" id="on_auto" onclick="onAuto()">Auto</button>
+                </div>
+                <div class="column">
+                    <p>Bơm nước</p>
+                    <p><img id="bom" src="img/bom_off.png" alt="Đèn" class="image"></p>
+                    <button class="btn" id="onbom" onclick="onBom()">On</button>
+                    <button class="btn" onclick="offBom()">Off</button>
+                </div>
+                <div class="column">
+                    <p>Video mô phỏng hệ thống thực tế</p>
+                    <iframe width="430" height="250" src="https://www.youtube.com/embed/WJNmA15phz4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>  <!--  Kết thúc thẻ cột -->
+              </div>    <!--Kết thúc thẻ card-->
+            </div>      <!-- Kết thúc home-page -->
+
+            <div class='room' id="bedroom">
+                <table id="watering_table">
+                    <thead>
+                      <tr>
+                        <th>Thời gian tưới gần đây</th>
+                      </tr>
+                    </thead>
+                    <tbody id="watering_table_body">
+                      <!-- Các dòng trong bảng sẽ được tạo bởi JavaScript -->
+                    </tbody>
+                  </table>        
+            </div>      <!-- Kết thúc thẻ bedroom -->
+            <div class='room' id="visualize data">
+                <div class="chart-container">
+                    <div class="chart-row">
+                    <canvas id="LivingroomChart" class="chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            </div> <!-- Kết thúc thẻ left-column -->
+        </div>
+          
+        <div class="footer">
+            <div class = column-footer>
+                <p>Trường Đại học Sư phạm Kỹ Thuật - Ho Chi Minh University Technology Education<br>
+                    Khoa: Điện - Điện tử <br>
+                    Ngành: Hệ thống nhúng và IoT<br>
+                    Lớp: 21139A <br>
+                    Đồ án 1 <br>
+                </p>
+            </div>
+            <div class = column-footer>
+                <p> Nội dung: Hệ thống tưới cây tự động dùng ESP32<br>
+                    Sinh viên thực hiện: <br>
+                    Tên: Châu Lê Thủy Tiên <br>
+                    MSSV: 21139061 <br>
+                    GVHD: ThS. Trần Thị Quỳnh Như <br>
+                </p>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>

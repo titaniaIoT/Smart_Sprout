@@ -1,0 +1,237 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    background: #f1f1f1;
+  }
+  
+  /* Header/Blog Title */
+  .header {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: hwb(136 29% 26%);
+    text-align: center;
+    font-size: 40px;
+    font-family: "Audiowide",sans-serif;
+    padding: 10px;
+  }
+  
+  .header h1 
+  {
+    font-size: 40px;
+  }
+  
+  /* Style the top navigation bar */
+  .topnav {
+    overflow: hidden;
+    background-color: #023f15;
+  }
+  
+  /* Style the topnav links */
+  .topnav button {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    background-color: #236233;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border: none;
+    width: 33.333333%;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+  
+  /* Change color on hover */
+  .topnav button:hover {
+    background-color: #696464;
+    color: rgb(15, 14, 14);
+  }
+  .topnav button.active {
+    font-weight: bold;
+    background-color: #ddd;
+    color: rgb(8, 8, 8);
+}
+  
+  /* Create two unequal columns that floats next to each other */
+
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 100%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    background-color: #f1f1f1;
+    padding-left: 20px;
+  }
+ 
+  /* Fake image */
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+  }
+  .row{
+    position: relative;
+  }
+  /* Clear floats after the columns */
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
+.column
+{
+    float: left;
+    width: 33.333333%;
+    text-align: center;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #0c0c0c;
+}
+#bedroom-column {
+  color: rgb(11, 11, 11);
+}
+.column p
+{
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 20px;
+}
+.image
+{
+    max-width: 40%; 
+    max-height: 40%; 
+   
+}
+.bgr_img{
+    position: absolute;
+    padding: auto;
+    width: 100%;
+    height: 100%;
+    background-image: url("img/living-room-background.jpg");
+    background-repeat: no-repeat;
+    filter: blur(3px); /* Điều chỉnh độ mờ tại đây */
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+}
+.footer
+{
+/*     position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 0;
+}
+
+.column-footer{
+    font-size: 15px;
+    float: left;
+    width: 50%;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.764);
+    color: rgba(255, 255, 255, 0.588);
+    padding: 0px 60px;
+}
+.btn {
+    background-color: #4CAF50; /* Màu nền khi bật */
+    color: white; /* Màu chữ khi bật */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng hover */
+}
+
+.btn:hover {
+    background-color: #324d33; /* Màu nền khi hover */
+}
+.btn.active {
+    background-color: #223623; /* Màu nền khi nút được nhấn */
+    color: #FFFFFF; /* Màu chữ khi nút được nhấn */
+} 
+ 
+.chart-container {
+  display: flex;
+  flex-direction: row; /* Chuyển sang dạng cột */
+  gap: 20px; /* Khoảng cách giữa các cột */
+  width: 100%;
+  max-width: 1200px; /* Giới hạn chiều rộng */
+  margin: 0 auto; /* Canh giữa theo chiều ngang */
+  padding: 20px;
+}
+
+.chart-row {
+  flex: 1; /* Chia đều chiều rộng của các cột */
+}
+
+.chart {
+  height: 300px; /* Độ cao của biểu đồ */
+}
+
+#watering_table {
+  font-size: 18px; /* Kích thước chữ */
+  margin: 0 auto; /* Căn lề giữa */
+  background-color: #f2f2f2; /* Màu nền */
+  color: #333; /* Màu chữ */
+}
+#watering_table th {
+  font-size: 20px; /* Kích thước chữ tiêu đề */
+  background-color: #333; /* Màu nền */
+  color: #fff; /* Màu chữ */
+  padding: 10px; /* Khoảng cách */
+  font-weight: bold; /* Đậm */
+  border-collapse: collapse; /* Gộp đường viền */
+  border: 1px solid #ccc; /* Đường viền bảng */
+}
+#watering_table td {
+  text-align: center; /* Căn giữa nội dung trong ô */
+}
+#watering_table th,
+#watering_table td {
+  border: 1px solid #ccc; /* Đường viền ô */
+  padding: 8px; /* Khoảng cách */
+}
+#watering_table tbody td:hover {
+  background-color: #e6e6e6; /* Màu nền khi hover */
+}
